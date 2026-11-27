@@ -1,0 +1,40 @@
+{
+ "lines": [
+  {
+   "id": "L1",
+   "scene": "page",
+   "caption": "soso desk: one BTC and one ETH call every 4 hours, LONG, SHORT or FLAT, with a size, a stop and three reasons. 2 cents in USDC per call.",
+   "say": "This is soso desk. Every four hours it makes one call on Bitcoin and one on Ether. Long, short, or flat, with a size, a stop, and three reasons. An agent pays two cents in USDC for a call."
+  },
+  {
+   "id": "L2",
+   "scene": "call",
+   "caption": "Latest BTC call (a test run, not counted): FLAT. ETF net flow -1306 M USD over 5 days, but a 4.22 M USD liquidation cluster sits 0.6 percent from the price, inside the 1.5 percent band.",
+   "say": "Here is the latest Bitcoin call. Flat. ETF flows leaned short: minus 1306 million dollars over 5 days. But a liquidation cluster of 4.22 million dollars sits 0.6 percent from the price, inside the one and a half percent band. So the desk stays out, and says why."
+  },
+  {
+   "id": "L3",
+   "scene": "heat",
+   "caption": "The cluster data is bought: 2 cents in USDC on Base, from the desk's own wallet to AgentFeed. Tagged self on the ledger, never counted as a customer.",
+   "say": "That cluster data is bought, not free. The desk pays AgentFeed two cents in USDC on Base, from its own wallet. This is that payment. It is tagged self on the ledger, so it never counts as a customer."
+  },
+  {
+   "id": "L4",
+   "scene": "402",
+   "caption": "Ask the call route without paying and the server answers HTTP 402. The quote: 20000 base units of USDC, 2 cents, on Base, to the AgentFeed treasury.",
+   "say": "Now the product. Ask the call route without paying, and the server answers H T T P four oh two, payment required. The quote is two cents of USDC on Base, to the AgentFeed treasury."
+  },
+  {
+   "id": "L5",
+   "scene": "calltx",
+   "caption": "Pay it and the same request returns the call, with a settlement receipt. This transaction was bought by our own wallet, so it is a test, outside every count.",
+   "say": "Pay it, and the same request returns the call, with a settlement receipt. Here is that transaction on Base. Our own wallet bought it, so it is a test, and the ledger keeps it out of every count."
+  },
+  {
+   "id": "L6",
+   "scene": "orders",
+   "caption": "SoDEX testnet: a signed order and a reduce-only stop both returned real order IDs. No simulated orders. Mainnet is off.",
+   "say": "On SoDEX, the signing path is proven on testnet. A signed order and a reduce-only stop both returned real order I Ds. Nothing is simulated, and mainnet stays off. Soso desk. Calls, payments, and results, on one public page."
+  }
+ ]
+}

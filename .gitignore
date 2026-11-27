@@ -1,0 +1,13 @@
+.env
+.secrets/
+node_modules/
+.wrangler/
+.dev.vars
+deck/.deck-filled.html
+video/*.wav
+video/audio/
+video/shots/
+video/out/
+video/frames/
+video/forbidden-words.local.json
+REPORT.md

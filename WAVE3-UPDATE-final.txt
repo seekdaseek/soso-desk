@@ -1,0 +1,11 @@
+Wave 3 update: soso desk, a one-person signal desk
+
+Built this wave, the whole product. Every 4 hours the desk makes one BTC call and one ETH call, LONG, SHORT or FLAT, with a size, a stop and three cited reasons. The inputs are SoSoValue spot ETF net flows over 5 days, SoSoValue hot news, and liquidation clusters from AgentFeed that the desk buys itself for 2 cents a read. No entry is allowed with a big cluster within 1.5 percent of the price, and the stop goes beyond the nearest cluster. If an input is missing the desk says so and stays out.
+
+Live from the ledger on 27 Nov: 52 scheduled calls, 26 FLAT and 26 directional, all 26 graded, hit rate 54 percent. The desk placed 3 orders on SoDEX testnet, each with an entry and a stop ID, for example BTC SHORT entry 3351986972 and stop 3351987135. It spent 1.02 USD of its own USDC on data. 14 manual test runs are shown on the page and counted nowhere.
+
+Agents buy a call at GET /call/BTC or /call/ETH for 2 cents in USDC over x402 on Base. One call was bought end to end by our own wallet in transaction 0x3a125214bf55451826fcb8a154c78c745fbde04a9a29d961dbd55f811bc0adcf, tagged self. Outside payers so far: 0, and the page says so.
+
+Not done: no mainnet order, mainnet is off. SoDEX needs at least 10 USD per order, so testnet orders use about 10.5 USD. No outside buyer yet.
+
+Page: https://soso-desk.ochinimus.workers.dev

@@ -1,0 +1,17 @@
+name = "soso-desk"
+main = "src/worker.js"
+compatibility_date = "2026-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+[triggers]
+crons = ["0 */4 * * *"]
+
+[vars]
+EXEC_NET = "testnet"
+KILL = "0"
+SODEX_ACCOUNT_ID = "60656"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "soso-desk"
+database_id = "df9af357-0990-40e1-9fd9-5e6342b0fe27"

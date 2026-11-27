@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>soso desk</title>
+<style>
+@page{size:1280px 720px;margin:0}
+*{box-sizing:border-box}html,body{margin:0}
+body{font:26px/1.4 -apple-system,"Helvetica Neue",Arial,sans-serif;color:#16150f}
+.s{width:1280px;height:720px;padding:64px 80px;background:#f6f5f1;page-break-after:always;position:relative;overflow:hidden}
+.s:last-child{page-break-after:auto}
+h1{font-size:66px;line-height:1.05;margin:0 0 24px;letter-spacing:-.03em}
+h2{font-size:44px;margin:0 0 28px;letter-spacing:-.02em}
+p{margin:0 0 14px}.m{color:#6b6a60;font-size:22px}
+ul{margin:0;padding-left:30px}li{margin:0 0 12px}
+.big{font-size:96px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.row{display:flex;gap:28px}.c{flex:1;background:#fff;border:1px solid #dedcd2;border-radius:14px;padding:22px 26px}
+.c b{display:block;font-size:50px;line-height:1.1}.c span{color:#6b6a60;font-size:19px}
+code{font:19px ui-monospace,Menlo,monospace;word-break:break-all}
+.f{position:absolute;left:80px;bottom:30px;font-size:17px;color:#6b6a60}
+.dn{color:#b3261e}.up{color:#0b7a43}
+</style></head><body>
+
+<div class="s"><h1>A BTC and ETH call every 4 hours.<br>An agent pays 2 cents for it.</h1>
+<p>soso desk makes one call per asset: LONG, SHORT or FLAT, with a size, a stop and three cited reasons. Every call, every payment and every order goes on one public page, losses included.</p>
+<p class="m">Built on SoSoValue data, SoDEX orders and AgentFeed liquidation data. One person, one Worker.</p>
+<div class="f">soso-desk.ochinimus.workers.dev · numbers read live @@WHEN@@</div></div>
+
+<div class="s"><h2>One user, one job</h2>
+<p>An AI agent or a trader that wants a BTC or ETH call with a reason and a track record, and does not want to build the pipeline.</p>
+<ul><li>No account, no key. The agent pays per call in USDC over x402.</li>
+<li>The answer is a decision, not a dashboard: side, size, stop, reasons.</li>
+<li>The record is public, so a buyer can judge the desk before paying.</li></ul>
+<div class="f">GET /call/BTC · GET /call/ETH · $0.02 USDC on Base</div></div>
+
+<div class="s"><h2>How a call is made</h2>
+<div class="row"><div class="c"><b>ETF flows</b><span>SoSoValue spot ETF net flow, last 5 days. Direction and consistency give a score from -2 to +2.</span></div>
+<div class="c"><b>Hot news</b><span>SoSoValue hot news, counted for the asset, bullish against bearish.</span></div>
+<div class="c"><b>Clusters</b><span>AgentFeed liquidation heatmap. No entry with a big cluster within 1.5 percent of the price. Stop goes beyond the nearest cluster.</span></div></div>
+<p style="margin-top:28px">Two points of lean or more makes a LONG or SHORT. Anything else is FLAT. If an input is missing the desk says so and stays out. It never guesses.</p>
+<div class="f">Macro prints inside 48 hours only halve the size. 10 unit tests cover the rules.</div></div>
+
+<div class="s"><h2>Three things that are different</h2>
+<ul><li><b>Sold per call.</b> Pay-per-call over x402 in USDC, with a public ledger of every paid call and its transaction hash.</li>
+<li><b>Entries and stops around liquidation clusters.</b> The desk pays for cluster data itself, and tags those payments "self" so they never count as buyers.</li>
+<li><b>Real order IDs, losses shown.</b> Signed SoDEX orders, with the result of each position on the page, wins and losses.</li></ul>
+<div class="f">Not simulated: where the desk has no order, the page says why.</div></div>
+
+<div class="s"><h2>The ledger as it stands</h2>
+<div class="row"><div class="c"><b>@@CALLS@@</b><span>calls made</span></div><div class="c"><b>@@FLAT@@</b><span>FLAT, the desk stayed out</span></div><div class="c"><b>@@DIR@@</b><span>LONG or SHORT calls</span></div><div class="c"><b>@@ORDERS@@</b><span>desk orders sent</span></div></div>
+<p style="margin-top:30px">Latest read, @@LATEST@@</p>
+<p class="m">A FLAT row is a result. The ETF lean was SHORT on both assets, and a large liquidation cluster sat within 1.5 percent of the price, so the desk did not trade into it.</p>
+<div class="f">Source: /api/ledger on the live Worker</div></div>
+
+<div class="s"><h2>Payments, with hashes</h2>
+<div class="row"><div class="c"><b>@@SELF@@</b><span>self payments, the desk buying cluster data, $@@SELFUSD@@</span></div><div class="c"><b>@@OUTSIDE@@</b><span>outside payers</span></div></div>
+<p style="margin-top:26px">One paid /call/BTC, end to end, bought by our own wallet and tagged self:</p>
+<p><code>@@CALLTX@@</code></p>
+<p class="m">Outside payers stays at its real count. It is not padded with our own purchases.</p>
+<div class="f">Every row links to the transaction on Base</div></div>
+
+<div class="s"><h2>Real SoDEX orders</h2>
+<p>The signing path is proven on SoDEX testnet: a signed market order and a reduce-only stop both returned order IDs.</p>
+<p><code>entry 3347771819 · stop 3347773873 · close 3347786708</code></p>
+<ul><li>Hard stop on every order. One position per asset. A daily loss stop. A kill switch.</li>
+<li>Testnet only, at the 10 USD exchange minimum. Mainnet stays off.</li></ul>
+<p class="m">Those three were a signing test. Desk orders appear on the page the first time a call is LONG or SHORT.</p>
+<div class="f">Orders are signed in the Worker. Nothing here is a payload preview.</div></div>
+
+<div class="s"><h2>Where this goes</h2>
+<ul><li>The route stays a paid AgentFeed route after the wave, so it earns after judging.</li>
+<li>Cap on cluster spend: 12 calls a day, hard stop under 0.20 USDC.</li>
+<li>Next: mainnet only after a human approves the size.</li></ul>
+<p style="margin-top:30px">soso-desk.ochinimus.workers.dev</p>
+<div class="f">Judge guide: 60 seconds on the page, no wallet needed</div></div>
+</body></html>

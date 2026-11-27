@@ -1,0 +1,21 @@
+{
+ "desk_order": null,
+ "built_at": "2026-11-22T22:40:49.981Z",
+ "call_is_real_cron_row": false,
+ "call_ts": 1795387186712,
+ "side": "FLAT",
+ "mark": 60857,
+ "etf_musd": -1306,
+ "etf_pos": 1,
+ "etf_days": 5,
+ "cluster_musd": 4.22,
+ "cluster_px": 61220,
+ "cluster_pct": 0.6,
+ "band_pct": 1.5,
+ "price_usd": 0.02,
+ "heatmap_tx": "0x784a51bbeb1ab6d5fb3c5b4afafc3dfab8fbae36e324fbae89013f1e47c015a8",
+ "call_tx": "0x3a125214bf55451826fcb8a154c78c745fbde04a9a29d961dbd55f811bc0adcf",
+ "real_calls": 0,
+ "tests_excluded": 14,
+ "outside_payers": 0
+}
